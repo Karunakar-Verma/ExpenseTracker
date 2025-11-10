@@ -6,15 +6,18 @@ import {addExpense,getExpense,updateExpense,deleteExpense} from './controller/ex
 import express from "express";
 import connectDb from "./config/df.js";
 import verifyToken from "./authentication/authMiddleware.js";
+import cors from 'cors'
 
 const app = express();
 app.use(express.json());
 
+app.use(cors());
+
 app.get("/", (req, res) => res.send("Hello Backend!"));
 
 // UserRoute
-app.post('/api/login',loginController)
-app.post('/api/signup',signupController)
+app.post('/api/v1/login',loginController)
+app.post('/api/v1/signup',signupController)
 
 // ExpenseRoute
 app.post('/api/v1/addexpense',verifyToken,addExpense)

@@ -56,13 +56,13 @@ export const loginController = async (req, res) => {
       return res.status(400).json({ message: "Email or password is wrong!" });
     }
 
-    // ✅ Compare hashed password
+ 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: "Wrong password!" });
     }
 
-    // ✅ JWT token create
+
     const token = jwt.sign({ id: user._id }, process.env.SECRET_CODE, { expiresIn: "1h" });
 
     return res.status(200).json({
