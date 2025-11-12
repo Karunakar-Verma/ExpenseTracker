@@ -16,7 +16,7 @@ const App = () => {
         className="min-h-screen bg-cover "
         style={{ backgroundImage: `url(${one})` }}>
         <Navbar />
-        <hr />
+        {/* <hr /> */}
 
         <Routes>
           <Route path="/" element = {<Allexpense/>}/>

@@ -2,6 +2,7 @@ import User from "../Models/user.js";
 import jwt from "jsonwebtoken";
 import bcrypt from 'bcrypt';
 
+
 //signup
 export const signupController = async (req,res)=>{
     const {fullName,email,password,confirmPassword} = req.body;
@@ -26,7 +27,8 @@ export const signupController = async (req,res)=>{
         })
 
         const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
+
+        res.status(201).json(savedUser); 
         
     }
     catch(error){
